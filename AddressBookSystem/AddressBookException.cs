@@ -11,7 +11,7 @@ namespace AddressBookSystem
         ExceptionType exceptionType;
         public enum ExceptionType
         {
-            Connection_Failed
+            Connection_Failed, Contact_Not_Updated
         }
         public AddressBookException(ExceptionType exceptionType, string message) : base(message)
         {
