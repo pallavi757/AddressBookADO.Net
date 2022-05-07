@@ -13,6 +13,8 @@ namespace AddressBookSystem
                 Console.WriteLine("1: For check Connection");
                 Console.WriteLine("2: Get All Records from AddressBook Contact Details");
                 Console.WriteLine("3: For Update The Contact");
+                //Console.WriteLine("4: For Get Contact In Given Date");
+                Console.WriteLine("5: For Get Contact From city and state ");
                 Console.WriteLine("0: For Exit");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
@@ -53,14 +55,29 @@ namespace AddressBookSystem
                         Console.WriteLine("Enter Email");
                         string Email = Console.ReadLine();
                         addressbook.Email = Email;
-                        Console.WriteLine("Enter type");
-                        string type = Console.ReadLine();
-                        addressbook.Type = type;
                         Console.WriteLine("Enter a Address Book Name");
                         string Name = Console.ReadLine();
                         addressbook.Name = Name;
+                        Console.WriteLine("Enter type");
+                        string type = Console.ReadLine();
+                        addressbook.Type = type;
                         Details.UpdateContact(addressbook);
                         Console.WriteLine("Contact is Updated");
+                        break;
+                    //case 4:
+                    //    // AddressBookModel getDate = new AddressBookModel();
+
+                    //    Details.GetContactInGivenDateRange();
+                    //    break;
+                    case 5:
+                        AddressBookModel getData = new AddressBookModel();
+                        Console.Write("Enter the City Name:");
+                        string cityname = Console.ReadLine();
+                        getData.City = cityname;
+                        Console.Write("Enter the State Name:");
+                        string statename = Console.ReadLine();
+                        getData.State = statename;
+                        details.GetDataFromCityAndState(getData);
                         break;
                     case 0:
                         Console.WriteLine("Exit");

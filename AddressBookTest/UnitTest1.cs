@@ -54,9 +54,19 @@ namespace AddressBookTest
             addressBookModel.Zip = 489856;
             addressBookModel.PhoneNumber = 9923991299;
             addressBookModel.Email = "sm123@gmail.com";
-            addressBookModel.Type = "Firend";
-            addressBookModel.Name = "FrinedGroup";
+            addressBookModel.Type = "FirendGroup";
+            addressBookModel.Name = "Frined";
             bool result = Details.UpdateContact(addressBookModel);
+            Assert.AreEqual(expected, result);
+        }
+        /// UC - Get data from city and state
+        [Test]
+        public void Get_Data_ByUsingCityAndState()
+        {
+            bool expected = true;
+            addressBookModel.City = "Mumbai";
+            addressBookModel.State = "Maharashtra";
+            bool result = details.GetDataFromCityAndState(addressBookModel);
             Assert.AreEqual(expected, result);
         }
     }
