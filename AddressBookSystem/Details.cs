@@ -152,7 +152,7 @@ namespace AddressBookSystem
         //            connection.Close();
         //            return true;
         //        }
-        //        throw new AddressBookException(AddressBookException.ExceptionType.No_DATA_IN_GIVEN_DATE_RANGE, "No Contacts in Given Date Range");
+        //        throw new AddressBookException(AddressBookException.ExceptionType. No_Data_In_Given_Date_Range, "No Contacts in Given Date Range");
         //    }
         //    catch (AddressBookException )
         //    {
@@ -216,6 +216,41 @@ namespace AddressBookSystem
 
             }
 
+        }
+        //UC-20
+        public bool AddContact(AddressBookModel address)
+        {
+            try
+            {
+                using (sqlConnection)
+                {
+                    SqlCommand sqlCommand = new SqlCommand("Add_AddressBookContact", sqlConnection);
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@First_Name", address.First_Name);
+                    sqlCommand.Parameters.AddWithValue("@Last_Name", address.Last_Name);
+                    sqlCommand.Parameters.AddWithValue("@Address", address.Address);
+                    sqlCommand.Parameters.AddWithValue("@City", address.City);
+                    sqlCommand.Parameters.AddWithValue("@State", address.State);
+                    sqlCommand.Parameters.AddWithValue("@Zip", address.Zip);
+                    sqlCommand.Parameters.AddWithValue("@PhoneNumber", address.PhoneNumber);
+                    sqlCommand.Parameters.AddWithValue("@Email", address.Email);
+                    sqlCommand.Parameters.AddWithValue("@Name", address.Name);
+                    sqlCommand.Parameters.AddWithValue("@Type", address.Type);
+                    sqlConnection.Open();
+
+                    var result = sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    if (result != 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw new AddressBookException(AddressBookException.ExceptionType.Contact_Not_Add, "Contact are not added");
+            }
         }
     }
 }

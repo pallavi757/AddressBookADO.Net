@@ -69,5 +69,23 @@ namespace AddressBookTest
             bool result = details.GetDataFromCityAndState(addressBookModel);
             Assert.AreEqual(expected, result);
         }
+        //UC-Add Contact
+        [Test]
+        public void Add_AddressBook_ContactInDB()
+        {
+            bool expected = true;
+            addressBookModel.First_Name = "Raju";
+            addressBookModel.Last_Name = "Wayal";
+            addressBookModel.Address = "Street 45";
+            addressBookModel.City = "Haydrabad";
+            addressBookModel.State = "Telangana";
+            addressBookModel.Zip = 940045;
+            addressBookModel.PhoneNumber = 9805310008;
+            addressBookModel.Email = "raju13@gmail.com";
+            addressBookModel.Name = "Friend";
+            addressBookModel.Type = "FriendGroup";
+            bool result = details.AddContact(addressBookModel);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

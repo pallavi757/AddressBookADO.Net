@@ -15,6 +15,7 @@ namespace AddressBookSystem
                 Console.WriteLine("3: For Update The Contact");
                 //Console.WriteLine("4: For Get Contact In Given Date");
                 Console.WriteLine("5: For Get Contact From city and state ");
+                Console.WriteLine("6: For Add Contact ");
                 Console.WriteLine("0: For Exit");
                 option = int.Parse(Console.ReadLine());
                 switch (option)
@@ -78,6 +79,41 @@ namespace AddressBookSystem
                         string statename = Console.ReadLine();
                         getData.State = statename;
                         details.GetDataFromCityAndState(getData);
+                        break;
+                    case 6:
+                        AddressBookModel addressBook = new AddressBookModel();
+                        Console.WriteLine("Enter First Name");
+                        string FirstName = Console.ReadLine();
+                        addressBook.First_Name = FirstName;
+                        Console.WriteLine("Enter Last Name");
+                        string LastName = Console.ReadLine();
+                        addressBook.Last_Name = LastName;
+                        Console.WriteLine("Enter Address");
+                        string Address = Console.ReadLine();
+                        addressBook.Address = Address;
+                        Console.WriteLine("Enter City");
+                        string City = Console.ReadLine();
+                        addressBook.City = City;
+                        Console.WriteLine("Enter state");
+                        string state = Console.ReadLine();
+                        addressBook.State = state;
+                        Console.WriteLine("Enter Zip");
+                        double Zip = Convert.ToInt64(Console.ReadLine());
+                        addressBook.Zip = Zip;
+                        Console.WriteLine("Enter PhoneNumber");
+                        double PhoneNumber = Convert.ToInt64(Console.ReadLine());
+                        addressBook.PhoneNumber = PhoneNumber;
+                        Console.WriteLine("Enter Email");
+                        string email = Console.ReadLine();
+                        addressBook.Email = email;
+                        Console.WriteLine("Enter a Address Book Name");
+                        string AddressbookName = Console.ReadLine();
+                        addressBook.Name = Name;
+                        Console.WriteLine("Enter type");
+                        string Type = Console.ReadLine();
+                        addressBook.Type = Type;
+                        details.AddContact(addressBook);
+                        Console.WriteLine("New Contact is Added");
                         break;
                     case 0:
                         Console.WriteLine("Exit");
