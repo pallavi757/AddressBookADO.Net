@@ -1,0 +1,29 @@
+{
+  "Address": [
+    {
+      "id": 1,
+      "name": "shiv",
+      "Address": "Rajashthan"
+    },
+    {
+      "id": 2,
+      "name": "Yogiraj",
+      "Address": "Pune"
+    },
+    {
+      "id": 3,
+      "name": "Girish",
+      "Address": "Nanded"
+    },
+    {
+      "id": 4,
+      "name": "Atish",
+      "Address": "Nagpur"
+    },
+    {
+      "id": 5,
+      "name": "Arjun",
+      "Address": "Mumbai"
+    }
+  ]
+}
